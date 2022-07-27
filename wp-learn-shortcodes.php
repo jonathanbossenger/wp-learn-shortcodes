@@ -18,5 +18,5 @@ add_shortcode( 'wp-learn-shortcode', 'wp_learn_shortcode_callback' );
  * @return void
  */
 function wp_learn_shortcode_callback() {
-	return "Hello from the shortcode";
+	return "<p>Hello from the shortcode</p>";
 }
