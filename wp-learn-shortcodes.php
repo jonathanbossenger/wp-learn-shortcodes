@@ -17,10 +17,18 @@ add_shortcode( 'wp-learn-shortcode', 'wp_learn_shortcode_callback' );
  *
  * @return void
  */
-function wp_learn_shortcode_callback( $attributes ) {
+function wp_learn_shortcode_callback( $attributes, $content = null ) {
+	$output = '';
 	if ( isset( $attributes['name'] ) ) {
-		return "<p>Hello from the shortcode, {$attributes['name']}</p>";
+		$output = "<div>";
+		$output .= "<p>Hello from the shortcode, {$attributes['name']}!</p>";
+		$output .= $content;
+		$output .= "</div>";
 	} else {
-		return "<p>Hello from the shortcode</p>";
+		$output = "<div>";
+		$output .= "<p>Hello from the shortcode</p>";
+		$output .= $content;
+		$output .= "</div>";
 	}
+	return $output;
 }
